@@ -7,6 +7,10 @@ public class OutputView {
     private static final String START_MESSAGE = "간단 숫자 퍼즐";
     private static final String TURN = "Turn ";
 
+    public static void printError(Exception e) {
+        System.out.println(e.getMessage());
+    }
+
     public static void printStartMessage() {
         System.out.println(START_MESSAGE);
     }
