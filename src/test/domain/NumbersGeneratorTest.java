@@ -15,6 +15,6 @@ class NumbersGeneratorTest {
     void generateNumbers(int input) {
         List<Integer> numbers = NumbersGenerator.generateNumbers(1, 8);
         Assertions.assertEquals(8, numbers.size());
-        Assertions.assertEquals(true, numbers.contains(input));
+        Assertions.assertTrue(numbers.contains(input));
     }
 }

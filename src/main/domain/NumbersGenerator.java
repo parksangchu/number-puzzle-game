@@ -1,22 +1,17 @@
 package main.domain;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class NumbersGenerator {
-    public static List<Integer> generateNumbers(int startNumber, int endNumber){
-        Random random = new Random();
-        List<Integer> Numbers = new ArrayList<>();
-        while(isInvalidSize(Numbers,startNumber,endNumber)){
-            int randomNumber = random.nextInt(endNumber - startNumber + 1) + startNumber;
-            if(!Numbers.contains(randomNumber)){
-                Numbers.add(randomNumber);
-            }
-        }
+
+    public static List<Integer> generateNumbers(int startNumber, int endNumber) {
+        List<Integer> Numbers = IntStream.rangeClosed(startNumber, endNumber)
+                .boxed()
+                .collect(Collectors.toList());
+        Collections.shuffle(Numbers);
         return Numbers;
-    }
-    private static boolean isInvalidSize(List<Integer> Numbers, int startNumber, int endNumber){
-        return Numbers.size() != endNumber - startNumber + 1;
     }
 }
