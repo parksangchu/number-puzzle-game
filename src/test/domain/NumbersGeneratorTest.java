@@ -14,7 +14,7 @@ class NumbersGeneratorTest {
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8})
     void generateNumbers(int input) {
         List<Integer> numbers = NumbersGenerator.generateNumbers(1, 8);
-        Assertions.assertTrue(numbers.size() == 8);
-        Assertions.assertTrue(numbers.contains(input));
+        Assertions.assertEquals(8, numbers.size());
+        Assertions.assertEquals(true, numbers.contains(input));
     }
 }
