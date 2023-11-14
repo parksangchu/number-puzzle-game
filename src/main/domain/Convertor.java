@@ -9,6 +9,7 @@ public class Convertor {
 
     public static List<Integer> convertToExchangeNumbers(String input) {
         List<Integer> exchangeNumbers = Arrays.stream(input.split(","))
+                .filter(number -> !number.isEmpty())
                 .map(number -> new Number(number.trim()))
                 .map(number -> number.getNumber())
                 .collect(Collectors.toList());
@@ -17,7 +18,7 @@ public class Convertor {
     }
 
     private static void validateSize(List<Integer> exchangeNumbers) {
-        if (exchangeNumbers.size() == 2) {
+        if (exchangeNumbers.size() != 2) {
             throw new IllegalArgumentException(INVALID_SIZE);
         }
     }
