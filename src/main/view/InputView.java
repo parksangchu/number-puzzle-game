@@ -6,8 +6,8 @@ public class InputView {
     private static final String ASK_EXCHANGE_NUMBER = "교환할 두 숫자를 입력>";
 
     public static String readExchangeNumber() {
-        String input = readLine();
-        return input;
+        System.out.println(ASK_EXCHANGE_NUMBER);
+        return readLine();
     }
 
     private static String readLine() {
