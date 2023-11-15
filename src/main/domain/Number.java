@@ -30,7 +30,7 @@ public class Number {
 
     private boolean isValidType(String number) {
         return number.chars()
-                .noneMatch(x -> !Character.isDigit(x));
+                .allMatch(Character::isDigit);
     }
 
     public int getNumber() {

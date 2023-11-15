@@ -13,7 +13,7 @@ public class Controller {
         OutputView.printStartMessage();
         Turn turn = new Turn();
         OutputView.printTurn(turn);
-        Numbers numbers = new Numbers(NumbersGenerator.generateNumbers(1, 8));
+        Numbers numbers = NumbersGenerator.generateNumbers(1, 8);
         OutputView.printNumbers(numbers);
         List<Integer> exchangeNumber = createExchangeNumber();
     }

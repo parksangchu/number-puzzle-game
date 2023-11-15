@@ -12,7 +12,6 @@ public class InputView {
 
     private static String readLine() {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        return input;
+        return scanner.nextLine();
     }
 }

@@ -11,7 +11,7 @@ public class Convertor {
         List<Integer> exchangeNumbers = Arrays.stream(input.split(","))
                 .filter(number -> !number.isEmpty())
                 .map(number -> new Number(number.trim()))
-                .map(number -> number.getNumber())
+                .map(Number::getNumber)
                 .collect(Collectors.toList());
         validateSize(exchangeNumbers);
         return exchangeNumbers;
