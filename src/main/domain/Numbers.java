@@ -14,10 +14,11 @@ public class Numbers {
         return numbers;
     }
 
-    public void swapNumbers(List<Integer> exchangeNumbers) {
+    public void swapNumbers(List<Integer> exchangeNumbers, Turn turn) {
         int indexZero = findIndex(exchangeNumbers, 0);
         int indexOne = findIndex(exchangeNumbers, 1);
         Collections.swap(numbers, indexZero, indexOne);
+        turn.increaseTurn();
     }
 
     private int findIndex(List<Integer> exchangeNumbers, int index) {
