@@ -30,7 +30,7 @@ public class Convertor {
         int AfterCut = (int) exchangeNumbers.stream()
                 .distinct()
                 .count();
-        return exchangeNumbers.size() == AfterCut;
+        return exchangeNumbers.size() != AfterCut;
     }
 
     private static void validateSize(List<Integer> exchangeNumbers) {
