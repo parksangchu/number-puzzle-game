@@ -17,15 +17,21 @@ public class OutputView {
         System.out.println(START_MESSAGE);
     }
 
-    public static void printTurn(Turn turn) {
+    public static void printCurrentStatus(Turn turn, Numbers numbers) {
+        OutputView.printTurn(turn);
+        OutputView.printNumbers(numbers);
+    }
+
+    private static void printTurn(Turn turn) {
         System.out.println(TURN + turn.getTurn());
     }
 
-    public static void printNumbers(Numbers numbers) {
+    private static void printNumbers(Numbers numbers) {
         System.out.println(numbers.getNumbers());
     }
 
     public static void printEnd(Turn turn) {
         System.out.printf(END, turn.getTurn());
     }
+
 }
