@@ -5,9 +5,12 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Numbers {
+    private static final int NUMBERS_SIZE = 8;
+    private static final String INVALID_SIZE = "퍼즐 숫자의 개수가 맞지 않습니다.";
     private final List<Integer> numbers;
 
     public Numbers(List<Integer> numbers) {
+        validateSize(numbers);
         this.numbers = numbers;
     }
 
@@ -31,4 +34,9 @@ public class Numbers {
         return numbers.indexOf(exchangeNumbers.get(index));
     }
 
+    private void validateSize(List<Integer> numbers) {
+        if (numbers.size() != NUMBERS_SIZE) {
+            throw new IllegalArgumentException(INVALID_SIZE);
+        }
+    }
 }
