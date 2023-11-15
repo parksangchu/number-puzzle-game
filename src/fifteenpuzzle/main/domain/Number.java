@@ -2,8 +2,8 @@ package fifteenpuzzle.main.domain;
 
 public class Number {
     private static final int MIN_VALUE = 1;
-    private static final int MAX_VALUE = 8;
-    public static final String INVALID_RANGE = "[ERROR] 1-8사이의 숫자만 입력 가능합니다.";
+    private static final int MAX_VALUE = 15;
+    public static final String INVALID_RANGE = "[ERROR] 1-15사이의 숫자만 입력 가능합니다.";
     public static final String INVALID_TYPE = "[ERROR] 문자는 입력할 수 없습니다.";
     private final int number;
 
