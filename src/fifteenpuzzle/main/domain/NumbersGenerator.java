@@ -14,11 +14,11 @@ public class NumbersGenerator {
 
     public static OutNumbers generateNumbers() {
         List<String> targetNumbers = IntStream.rangeClosed(START_NUM, END_NUM)
-                .mapToObj(number -> String.valueOf(number))
+                .mapToObj(String::valueOf)
                 .collect(Collectors.toList());
         Collections.shuffle(targetNumbers);
         List<List<String>> outNumbers = addInNumbers(targetNumbers);
-        outNumbers = cutZero(outNumbers);
+        cutZero(outNumbers);
         return new OutNumbers(outNumbers);
     }
 

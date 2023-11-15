@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class OutNumbers {
     private static final int NUMBERS_SIZE = 4;
     private static final String INVALID_SIZE = "퍼즐 숫자의 개수가 맞지 않습니다.";
-    private List<List<String>> numbers;
+    private final List<List<String>> numbers;
 
     public OutNumbers(List<List<String>> numbers) {
         validateSize(numbers);
