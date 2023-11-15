@@ -17,9 +17,8 @@ class NumbersTest {
         Numbers numbers = NumbersGenerator.generateNumbers(1, 8);
         int before = numbers.getNumbers().indexOf(1);
         List<Integer> exchangeNumbers = List.of(1, 2);
-        numbers.swapNumbers(exchangeNumbers, turn);
+        numbers.swapNumbers(exchangeNumbers);
         int after = numbers.getNumbers().indexOf(2);
         Assertions.assertTrue(before == after);
-        Assertions.assertTrue(turn.getTurn() == 2);
     }
 }
