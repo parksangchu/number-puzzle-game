@@ -12,10 +12,15 @@ public class Controller {
     public void start() {
         OutputView.printStartMessage();
         Turn turn = new Turn();
-        OutputView.printTurn(turn);
         Numbers numbers = NumbersGenerator.generateNumbers(1, 8);
-        OutputView.printNumbers(numbers);
-        List<Integer> exchangeNumber = createExchangeNumber();
+        while (!numbers.isAnswer()) {
+            OutputView.printCurrentStatus(turn, numbers);
+            List<Integer> exchangeNumber = createExchangeNumber();
+            numbers.swapNumbers(exchangeNumber);
+            turn.increaseTurn();
+        }
+        OutputView.printCurrentStatus(turn, numbers);
+        OutputView.printEnd(turn);
     }
 
     private List<Integer> createExchangeNumber() {
@@ -28,4 +33,5 @@ public class Controller {
             }
         }
     }
+
 }
