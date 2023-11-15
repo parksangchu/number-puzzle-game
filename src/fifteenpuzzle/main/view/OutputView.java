@@ -1,7 +1,7 @@
-package main.view;
+package fifteenpuzzle.main.view;
 
-import main.domain.Numbers;
-import main.domain.Turn;
+import fifteenpuzzle.main.domain.Numbers;
+import fifteenpuzzle.main.domain.Turn;
 
 public class OutputView {
     private static final String START_MESSAGE = "간단 숫자 퍼즐";

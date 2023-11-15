@@ -1,4 +1,4 @@
-package main.domain;
+package eightpuzzle.main.domain;
 
 public class Number {
     private static final int MIN_VALUE = 1;

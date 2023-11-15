@@ -1,7 +1,7 @@
-package test.domain;
+package eightpuzzle.test;
 
-import main.domain.Numbers;
-import main.domain.NumbersGenerator;
+import eightpuzzle.main.domain.Numbers;
+import eightpuzzle.main.domain.NumbersGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

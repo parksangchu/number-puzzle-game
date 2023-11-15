@@ -1,9 +1,9 @@
-package test.domain;
+package eightpuzzle.test;
 
+import eightpuzzle.main.domain.Numbers;
+import eightpuzzle.main.domain.NumbersGenerator;
+import eightpuzzle.main.domain.Turn;
 import java.util.List;
-import main.domain.Numbers;
-import main.domain.NumbersGenerator;
-import main.domain.Turn;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

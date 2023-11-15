@@ -1,4 +1,4 @@
-package main.view;
+package fifteenpuzzle.main.view;
 
 import java.util.Scanner;
 

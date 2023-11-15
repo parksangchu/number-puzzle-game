@@ -1,4 +1,4 @@
-package main.domain;
+package eightpuzzle.main.domain;
 
 import java.util.Collections;
 import java.util.List;

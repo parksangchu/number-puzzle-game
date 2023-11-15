@@ -1,12 +1,12 @@
-package main.controller;
+package eightpuzzle.main.controller;
 
+import eightpuzzle.main.domain.Convertor;
+import eightpuzzle.main.domain.Numbers;
+import eightpuzzle.main.domain.NumbersGenerator;
+import eightpuzzle.main.domain.Turn;
+import eightpuzzle.main.view.InputView;
+import eightpuzzle.main.view.OutputView;
 import java.util.List;
-import main.domain.Convertor;
-import main.domain.Numbers;
-import main.domain.NumbersGenerator;
-import main.domain.Turn;
-import main.view.InputView;
-import main.view.OutputView;
 
 public class Controller {
     public void start() {

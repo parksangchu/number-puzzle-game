@@ -1,4 +1,4 @@
-package main.domain;
+package fifteenpuzzle.main.domain;
 
 import java.util.Arrays;
 import java.util.List;
