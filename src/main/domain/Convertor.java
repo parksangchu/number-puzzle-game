@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Convertor {
+    private static final String DELIMITER = ",";
     private static final String INVALID_SIZE = "2개의 숫자를 입력해야 합니다.";
 
     public static List<Integer> convertToExchangeNumbers(String input) {
-        List<Integer> exchangeNumbers = Arrays.stream(input.split(","))
+        List<Integer> exchangeNumbers = Arrays.stream(input.split(DELIMITER))
                 .filter(number -> !number.isEmpty())
                 .map(number -> new Number(number.trim()))
                 .map(Number::getNumber)
