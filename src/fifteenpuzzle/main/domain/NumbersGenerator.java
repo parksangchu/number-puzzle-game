@@ -28,7 +28,7 @@ public class NumbersGenerator {
         int endNum = IN_NUMBERS_END_INIT_NUM;
         for (int i = 0; i < 4; i++) {
             outNumbers.add(IntStream.rangeClosed(startNum, endNum)
-                    .mapToObj(index -> targetNumbers.get(index))
+                    .mapToObj(targetNumbers::get)
                     .collect(Collectors.toList()));
             startNum += 4;
             endNum += 4;
@@ -37,7 +37,7 @@ public class NumbersGenerator {
 
     }
 
-    private static List<List<String>> cutZero(List<List<String>> outNumbers) {
+    private static void cutZero(List<List<String>> outNumbers) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (outNumbers.get(i).get(j).equals("0")) {
@@ -45,6 +45,5 @@ public class NumbersGenerator {
                 }
             }
         }
-        return outNumbers;
     }
 }
