@@ -4,6 +4,7 @@ public class Number {
     private static final int MIN_VALUE = 1;
     private static final int MAX_VALUE = 8;
     public static final String INVALID_RANGE = "[ERROR] 1-8사이의 숫자만 입력 가능합니다.";
+    public static final String INVALID_TYPE = "[ERROR] 문자는 입력할 수 없습니다.";
     private final int number;
 
     public Number(String number) {
@@ -24,7 +25,7 @@ public class Number {
 
     private void validateType(String number) {
         if (!isValidType(number)) {
-            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
+            throw new IllegalArgumentException(INVALID_TYPE);
         }
     }
 
