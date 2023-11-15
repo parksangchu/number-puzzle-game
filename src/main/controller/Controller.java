@@ -13,14 +13,18 @@ public class Controller {
         OutputView.printStartMessage();
         Turn turn = new Turn();
         Numbers numbers = NumbersGenerator.generateNumbers(1, 8);
+        repeatProcess(numbers, turn);
+        OutputView.printCurrentStatus(turn, numbers);
+        OutputView.printEnd(turn);
+    }
+
+    private void repeatProcess(Numbers numbers, Turn turn) {
         while (!numbers.isAnswer()) {
             OutputView.printCurrentStatus(turn, numbers);
             List<Integer> exchangeNumber = createExchangeNumber();
             numbers.swapNumbers(exchangeNumber);
             turn.increaseTurn();
         }
-        OutputView.printCurrentStatus(turn, numbers);
-        OutputView.printEnd(turn);
     }
 
     private List<Integer> createExchangeNumber() {
