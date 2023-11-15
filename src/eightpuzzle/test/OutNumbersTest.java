@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class NumbersTest {
+class OutNumbersTest {
 
     @Test
     @DisplayName("1과 2의 자리를 서로 스왑한다.")
