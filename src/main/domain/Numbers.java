@@ -24,7 +24,7 @@ public class Numbers {
     public boolean isAnswer() {
         List<Integer> answer = List.of(1, 2, 3, 4, 5, 6, 7, 8);
         return IntStream.range(0, numbers.size())
-                .allMatch(index -> numbers.get(index) == answer.get(index));
+                .allMatch(index -> numbers.get(index).equals(answer.get(index)));
     }
 
     private int findIndex(List<Integer> exchangeNumbers, int index) {
