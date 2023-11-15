@@ -7,11 +7,11 @@ import java.util.stream.IntStream;
 
 public class NumbersGenerator {
 
-    public static List<Integer> generateNumbers(int startNumber, int endNumber) {
-        List<Integer> Numbers = IntStream.rangeClosed(startNumber, endNumber)
+    public static Numbers generateNumbers(int startNumber, int endNumber) {
+        List<Integer> numbers = IntStream.rangeClosed(startNumber, endNumber)
                 .boxed()
                 .collect(Collectors.toList());
-        Collections.shuffle(Numbers);
-        return Numbers;
+        Collections.shuffle(numbers);
+        return new Numbers(numbers);
     }
 }
