@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class NumbersGeneratorTest {
+class OutNumbersGeneratorTest {
 
     @ParameterizedTest
     @DisplayName("1-8 수를 가진다.")
