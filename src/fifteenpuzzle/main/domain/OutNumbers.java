@@ -6,7 +6,9 @@ import java.util.List;
 public class OutNumbers {
     private static final int NUMBERS_SIZE = 4;
     private static final String INVALID_SIZE = "퍼즐 숫자의 개수가 맞지 않습니다.";
+    private static final String INVALID_MOVING = "해당 숫자는 움직일 수 없습니다.";
     private final List<List<String>> numbers;
+
 
     public OutNumbers(List<List<String>> numbers) {
         validateSize(numbers);
@@ -20,15 +22,46 @@ public class OutNumbers {
     public void swapNumbers(String exchangeNumbers) {
         List<Integer> targetIndexs = findIndex(exchangeNumbers);
         List<Integer> emptyIndexs = findIndex("");
-        numbers.get(targetIndexs.get(0))
-                .set(targetIndexs.get(1), "");
-        numbers.get(emptyIndexs.get(0))
-                .set(emptyIndexs.get(1), exchangeNumbers);
+        if (isValidMoving(targetIndexs, emptyIndexs)) {
+            numbers.get(targetIndexs.get(0))
+                    .set(targetIndexs.get(1), "");
+            numbers.get(emptyIndexs.get(0))
+                    .set(emptyIndexs.get(1), exchangeNumbers);
+        }
     }
 
-    public boolean isValidMoving(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
-
+    private boolean isValidMoving(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
+        if (isRight(targetIndexs, emptyIndexs)) {
+            return true;
+        }
+        if (isLeft(targetIndexs, emptyIndexs)) {
+            return true;
+        }
+        if (isTop(targetIndexs, emptyIndexs)) {
+            return true;
+        }
+        if (isBottom(targetIndexs, emptyIndexs)) {
+            return true;
+        }
+        throw new IllegalArgumentException(INVALID_MOVING);
     }
+
+    private boolean isRight(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
+        return targetIndexs.get(0) == emptyIndexs.get(0) && targetIndexs.get(1) == emptyIndexs.get(1) + 1;
+    }
+
+    private boolean isLeft(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
+        return targetIndexs.get(0) == emptyIndexs.get(0) && targetIndexs.get(1) == emptyIndexs.get(1) - 1;
+    }
+
+    private boolean isTop(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
+        return targetIndexs.get(0) == emptyIndexs.get(0) + 1 && targetIndexs.get(1) == emptyIndexs.get(1);
+    }
+
+    private boolean isBottom(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
+        return targetIndexs.get(0) == emptyIndexs.get(0) - 1 && targetIndexs.get(1) == emptyIndexs.get(1);
+    }
+
 
     public boolean isAnswer() {
         List<List<String>> answer = makeAnswer();

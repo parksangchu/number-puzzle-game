@@ -1,12 +1,11 @@
 package fifteenpuzzle.main.controller;
 
-import fifteenpuzzle.main.domain.Convertor;
+import fifteenpuzzle.main.domain.Number;
 import fifteenpuzzle.main.domain.NumbersGenerator;
 import fifteenpuzzle.main.domain.OutNumbers;
 import fifteenpuzzle.main.domain.Turn;
 import fifteenpuzzle.main.view.InputView;
 import fifteenpuzzle.main.view.OutputView;
-import java.util.List;
 
 public class Controller {
     public void start() {
@@ -21,21 +20,22 @@ public class Controller {
     private void repeatProcess(OutNumbers outNumbers, Turn turn) {
         while (!outNumbers.isAnswer()) {
             OutputView.printCurrentStatus(turn, outNumbers);
-            List<Integer> exchangeNumber = createExchangeNumber();
-            outNumbers.swapNumbers(exchangeNumber);
+            createMoving(outNumbers);
             turn.increaseTurn();
         }
     }
 
-    private List<Integer> createExchangeNumber() {
+    private void createMoving(OutNumbers outNumbers) {
         while (true) {
             try {
                 String input = InputView.readExchangeNumber();
-                return Convertor.convertToExchangeNumbers(input);
+                Number number = new Number(input);
+                String exchangeNumber = String.valueOf(number.getNumber());
+                outNumbers.swapNumbers(exchangeNumber);
+                return;
             } catch (IllegalArgumentException e) {
                 OutputView.printError(e);
             }
         }
     }
-
 }
