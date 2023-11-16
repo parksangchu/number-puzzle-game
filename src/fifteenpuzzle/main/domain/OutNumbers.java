@@ -2,6 +2,7 @@ package fifteenpuzzle.main.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class OutNumbers {
     private static final int NUMBERS_SIZE = 4;
@@ -27,7 +28,9 @@ public class OutNumbers {
                     .set(targetIndexs.get(1), "");
             numbers.get(emptyIndexs.get(0))
                     .set(emptyIndexs.get(1), exchangeNumbers);
+            return;
         }
+        throw new IllegalArgumentException(INVALID_MOVING);
     }
 
     private boolean isValidMoving(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
@@ -43,23 +46,27 @@ public class OutNumbers {
         if (isBottom(targetIndexs, emptyIndexs)) {
             return true;
         }
-        throw new IllegalArgumentException(INVALID_MOVING);
+        return false;
     }
 
     private boolean isRight(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
-        return targetIndexs.get(0) == emptyIndexs.get(0) && targetIndexs.get(1) == emptyIndexs.get(1) + 1;
+        return Objects.equals(targetIndexs.get(0), emptyIndexs.get(0))
+                && Objects.equals(targetIndexs.get(1), emptyIndexs.get(1) + 1);
     }
 
     private boolean isLeft(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
-        return targetIndexs.get(0) == emptyIndexs.get(0) && targetIndexs.get(1) == emptyIndexs.get(1) - 1;
+        return Objects.equals(targetIndexs.get(0), emptyIndexs.get(0))
+                && Objects.equals(targetIndexs.get(1), emptyIndexs.get(1) - 1);
     }
 
     private boolean isTop(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
-        return targetIndexs.get(0) == emptyIndexs.get(0) + 1 && targetIndexs.get(1) == emptyIndexs.get(1);
+        return Objects.equals(targetIndexs.get(0), emptyIndexs.get(0) + 1)
+                && Objects.equals(targetIndexs.get(1), emptyIndexs.get(1));
     }
 
     private boolean isBottom(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
-        return targetIndexs.get(0) == emptyIndexs.get(0) - 1 && targetIndexs.get(1) == emptyIndexs.get(1);
+        return Objects.equals(targetIndexs.get(0), emptyIndexs.get(0) - 1)
+                && Objects.equals(targetIndexs.get(1), emptyIndexs.get(1));
     }
 
 
