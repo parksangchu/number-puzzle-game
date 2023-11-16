@@ -43,10 +43,7 @@ public class OutNumbers {
         if (isTop(targetIndexs, emptyIndexs)) {
             return true;
         }
-        if (isBottom(targetIndexs, emptyIndexs)) {
-            return true;
-        }
-        return false;
+        return isBottom(targetIndexs, emptyIndexs);
     }
 
     private boolean isRight(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
