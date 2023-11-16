@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class OutNumbers {
+public class FifteenNumbers {
     private static final int NUMBERS_SIZE = 4;
     private static final String INVALID_SIZE = "퍼즐 숫자의 개수가 맞지 않습니다.";
     private static final String INVALID_MOVING = "해당 숫자는 움직일 수 없습니다.";
     private final List<List<String>> numbers;
 
 
-    public OutNumbers(List<List<String>> numbers) {
+    public FifteenNumbers(List<List<String>> numbers) {
         validateSize(numbers);
         this.numbers = numbers;
     }

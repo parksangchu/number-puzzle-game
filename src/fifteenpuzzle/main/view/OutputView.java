@@ -1,6 +1,6 @@
 package fifteenpuzzle.main.view;
 
-import fifteenpuzzle.main.domain.OutNumbers;
+import fifteenpuzzle.main.domain.FifteenNumbers;
 import fifteenpuzzle.main.domain.Turn;
 
 public class OutputView {
@@ -17,19 +17,19 @@ public class OutputView {
         System.out.println(START_MESSAGE);
     }
 
-    public static void printCurrentStatus(Turn turn, OutNumbers outNumbers) {
+    public static void printCurrentStatus(Turn turn, FifteenNumbers fifteenNumbers) {
         OutputView.printTurn(turn);
-        OutputView.printNumbers(outNumbers);
+        OutputView.printNumbers(fifteenNumbers);
     }
 
     private static void printTurn(Turn turn) {
         System.out.println(TURN + turn.getTurn());
     }
 
-    private static void printNumbers(OutNumbers outNumbers) {
+    private static void printNumbers(FifteenNumbers fifteenNumbers) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.printf("[%2s]", outNumbers.getNumbers()
+                System.out.printf("[%2s]", fifteenNumbers.getNumbers()
                         .get(i)
                         .get(j));
             }

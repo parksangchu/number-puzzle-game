@@ -1,8 +1,8 @@
 package fifteenpuzzle.main.controller;
 
+import fifteenpuzzle.main.domain.FifteenNumbers;
 import fifteenpuzzle.main.domain.Number;
 import fifteenpuzzle.main.domain.NumbersGenerator;
-import fifteenpuzzle.main.domain.OutNumbers;
 import fifteenpuzzle.main.domain.Turn;
 import fifteenpuzzle.main.view.InputView;
 import fifteenpuzzle.main.view.OutputView;
@@ -11,27 +11,27 @@ public class Controller {
     public void start() {
         OutputView.printStartMessage();
         Turn turn = new Turn();
-        OutNumbers outNumbers = NumbersGenerator.generateNumbers();
-        repeatProcess(outNumbers, turn);
-        OutputView.printCurrentStatus(turn, outNumbers);
+        FifteenNumbers fifteenNumbers = NumbersGenerator.generateNumbers();
+        repeatProcess(fifteenNumbers, turn);
+        OutputView.printCurrentStatus(turn, fifteenNumbers);
         OutputView.printEnd(turn);
     }
 
-    private void repeatProcess(OutNumbers outNumbers, Turn turn) {
-        while (!outNumbers.isAnswer()) {
-            OutputView.printCurrentStatus(turn, outNumbers);
-            createMoving(outNumbers);
+    private void repeatProcess(FifteenNumbers fifteenNumbers, Turn turn) {
+        while (!fifteenNumbers.isAnswer()) {
+            OutputView.printCurrentStatus(turn, fifteenNumbers);
+            createMoving(fifteenNumbers);
             turn.increaseTurn();
         }
     }
 
-    private void createMoving(OutNumbers outNumbers) {
+    private void createMoving(FifteenNumbers fifteenNumbers) {
         while (true) {
             try {
                 String input = InputView.readExchangeNumber();
                 Number number = new Number(input);
                 String exchangeNumber = String.valueOf(number.getNumber());
-                outNumbers.swapNumbers(exchangeNumber);
+                fifteenNumbers.swapNumbers(exchangeNumber);
                 return;
             } catch (IllegalArgumentException e) {
                 OutputView.printError(e);

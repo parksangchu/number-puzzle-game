@@ -12,14 +12,14 @@ public class NumbersGenerator {
     private static final int IN_NUMBERS_START_INIT_NUM = 0;
     private static final int IN_NUMBERS_END_INIT_NUM = 3;
 
-    public static OutNumbers generateNumbers() {
+    public static FifteenNumbers generateNumbers() {
         List<String> targetNumbers = IntStream.rangeClosed(START_NUM, END_NUM)
                 .mapToObj(String::valueOf)
                 .collect(Collectors.toList());
         Collections.shuffle(targetNumbers);
         List<List<String>> outNumbers = addInNumbers(targetNumbers);
         cutZero(outNumbers);
-        return new OutNumbers(outNumbers);
+        return new FifteenNumbers(outNumbers);
     }
 
     private static List<List<String>> addInNumbers(List<String> targetNumbers) {
