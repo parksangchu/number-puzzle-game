@@ -1,8 +1,7 @@
 package fifteenpuzzle.main.domain;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class OutNumbers {
     private static final int NUMBERS_SIZE = 4;
@@ -18,20 +17,52 @@ public class OutNumbers {
         return numbers;
     }
 
-    public void swapNumbers(List<Integer> exchangeNumbers) {
-        int indexZero = findIndex(exchangeNumbers, 0);
-        int indexOne = findIndex(exchangeNumbers, 1);
-        Collections.swap(numbers, indexZero, indexOne);
+    public void swapNumbers(String exchangeNumbers) {
+        List<Integer> targetIndexs = findIndex(exchangeNumbers);
+        List<Integer> emptyIndexs = findIndex("");
+        numbers.get(targetIndexs.get(0))
+                .set(targetIndexs.get(1), "");
+        numbers.get(emptyIndexs.get(0))
+                .set(emptyIndexs.get(1), exchangeNumbers);
+    }
+
+    public boolean isValidMoving(List<Integer> targetIndexs, List<Integer> emptyIndexs) {
+
     }
 
     public boolean isAnswer() {
-        List<Integer> answer = List.of(1, 2, 3, 4, 5, 6, 7, 8);
-        return IntStream.range(0, numbers.size())
-                .allMatch(index -> numbers.get(index).equals(answer.get(index)));
+        List<List<String>> answer = makeAnswer();
+        int count = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (numbers.get(i).get(j).equals(answer.get(i).get(j))) {
+                    count++;
+                }
+            }
+        }
+        return count >= 15;
     }
 
-    private int findIndex(List<Integer> exchangeNumbers, int index) {
-        return numbers.indexOf(exchangeNumbers.get(index));
+    private List<List<String>> makeAnswer() {
+        List<List<String>> answer = new ArrayList<>();
+        answer.add(List.of("1", "2", "3", "4"));
+        answer.add(List.of("5", "6", "7", "8"));
+        answer.add(List.of("9", "10", "11", "12"));
+        answer.add(List.of("13", "14", "15", ""));
+        return answer;
+    }
+
+    private List<Integer> findIndex(String exchangeNumber) {
+        List<Integer> indexs = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (numbers.get(i).get(j).equals(exchangeNumber)) {
+                    indexs.add(i);
+                    indexs.add(j);
+                }
+            }
+        }
+        return indexs;
     }
 
     private void validateSize(List<List<String>> numbers) {
